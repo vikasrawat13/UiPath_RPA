@@ -1,6 +1,6 @@
 {
   "name": "Assign",
-  "description": "assign activity example",
+  "description": "assign activity example\r\n\r\nimport/export arguments between workflows",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.8.3-beta.851189]",
