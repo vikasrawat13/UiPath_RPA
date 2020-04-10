@@ -2,11 +2,6 @@
 RPA tips &amp; tricks - exercise tutorials
 
 # UiPath Activities
-[Files In a Folder](https://github.com/vikasrawat13/UiPath_RPA/tree/master/Files_In_a_Folder)<br/>
-[MessageBox](https://github.com/vikasrawat13/UiPath_RPA/tree/master/MessageBox)<br/>
-[File Operations](https://github.com/vikasrawat13/UiPath_RPA/tree/master/File_Operations)<br/>
-[Loops](https://github.com/vikasrawat13/UiPath_RPA/tree/master/Loops)<br/>
-
 Uipath convert string to Integer<br>
 Convert.ToInt16("12") + Convert.ToInt16("13") = 25<br>
 cint("12") + cint("13") = 25<br>
