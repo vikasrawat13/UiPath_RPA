@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Files_Copy" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="889,861" sap2010:WorkflowViewState.IdRef="Files_Copy_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Files_Copy" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="919,828" sap2010:WorkflowViewState.IdRef="Files_Copy_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mv="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="42">
       <x:String>System.Activities</x:String>
@@ -51,7 +51,7 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Flowchart sap2010:Annotation.AnnotationText="Copy all specific files from a selected folder.&#xA;&#xA;like xlsx, csv, txt etc." DisplayName="Files_Copy" sap:VirtualizedContainerService.HintSize="899,696" sap2010:WorkflowViewState.IdRef="Flowchart_3">
+  <Flowchart sap2010:Annotation.AnnotationText="Copy all specific files from a selected folder.&#xA;&#xA;like xlsx, csv, txt etc.&#xD;&#xA;&#xD;&#xA;Note: sLocation &amp; dLocation variable values to be changed" DisplayName="Files_Copy" sap:VirtualizedContainerService.HintSize="899,728" sap2010:WorkflowViewState.IdRef="Flowchart_3">
     <Flowchart.Variables>
       <Variable x:TypeArguments="x:String" Default="D:\user\Documents\UiPath\Files\sLoc" Name="sLocation" />
       <Variable x:TypeArguments="x:String" Name="fName" />
@@ -85,7 +85,7 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Delete all files from a folder using kill command" Code="Dim flName As String = Dir(sLoc+&quot;\&quot;)&#xD;&#xA;&#xD;&#xA;While flName&lt;&gt;vbNullString&#xD;&#xA;&#x9;FileCopy(sLoc+&quot;\&quot;+flName,dLoc+&quot;\&quot;+flName)&#xD;&#xA;&#x9;flName=Dir&#xD;&#xA;End While&#xD;&#xA;&#xD;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,195" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+        <ui:InvokeCode ContinueOnError="{x:Null}" sap2010:Annotation.AnnotationText="Delete all files from a folder using kill command" Code="Dim flName As String = Dir(sLoc+&quot;\&quot;)&#xA;&#xA;While flName&lt;&gt;vbNullString&#xA;&#x9;FileCopy(sLoc+&quot;\&quot;+flName,dLoc+&quot;\&quot;+flName)&#xA;&#x9;flName=Dir&#xA;End While&#xA;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,195" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
           <ui:InvokeCode.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="sLoc">[sLocation]</InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="dLoc">[dLocation]</InArgument>
@@ -173,12 +173,8 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <If.Then>
                       <InvokeMethod DisplayName="Invoke Method" sap:VirtualizedContainerService.HintSize="238,135" sap2010:WorkflowViewState.IdRef="InvokeMethod_1" MethodName="FileCopy" TargetType="mv:FileSystem">
-                        <InArgument x:TypeArguments="x:String">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="sLocation+&quot;\&quot;+fName" />
-                        </InArgument>
-                        <InArgument x:TypeArguments="x:String">
-                          <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="dLocation+&quot;\&quot;+fName" />
-                        </InArgument>
+                        <InArgument x:TypeArguments="x:String">[sLocation+"\"+fName]</InArgument>
+                        <InArgument x:TypeArguments="x:String">[dLocation+"\"+fName]</InArgument>
                       </InvokeMethod>
                     </If.Then>
                   </If>
@@ -222,7 +218,7 @@
             <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim fl As FileInfo, fPath As String&#xD;&#xA;&#xD;&#xA;For Each fPath In Directory.GetFiles(sLoc)&#xD;&#xA;&#x9;fl = New FileInfo(fPath)&#xD;&#xA;&#x9;If fl.Extension.ToLower.EndsWith(&quot;.jpg&quot;) Or fl.Extension.ToLower.EndsWith(&quot;.pdf&quot;) Then&#xD;&#xA;&#x9;&#x9;fl.CopyTo(dLoc+&quot;\&quot;+fl.Name,True)&#xD;&#xA;&#x9;End If&#xD;&#xA;Next&#xD;&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+        <ui:InvokeCode ContinueOnError="{x:Null}" Code="Dim fl As FileInfo, fPath As String&#xA;&#xA;For Each fPath In Directory.GetFiles(sLoc)&#xA;&#x9;fl = New FileInfo(fPath)&#xA;&#x9;If fl.Extension.ToLower.EndsWith(&quot;.jpg&quot;) Or fl.Extension.ToLower.EndsWith(&quot;.pdf&quot;) Then&#xA;&#x9;&#x9;fl.CopyTo(dLoc+&quot;\&quot;+fl.Name,True)&#xA;&#x9;End If&#xA;Next&#xA;" DisplayName="Invoke code" sap:VirtualizedContainerService.HintSize="334,164" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
           <ui:InvokeCode.Arguments>
             <InArgument x:TypeArguments="x:String" x:Key="sLoc">[sLocation]</InArgument>
             <InArgument x:TypeArguments="x:String" x:Key="dLoc">[dLocation]</InArgument>

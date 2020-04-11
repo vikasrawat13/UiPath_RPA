@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>848,849</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>878,784</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Files_In_A_Folder_Sequence__1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -50,6 +50,10 @@
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.Python</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Flowchart DisplayName="All Files In Folder" sap:VirtualizedContainerService.HintSize="858,684" sap2010:WorkflowViewState.IdRef="Flowchart_2">
@@ -74,34 +78,28 @@
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">310,109</av:Point>
-          <av:Size x:Key="ShapeSize">200,51</av:Size>
-          <av:PointCollection x:Key="ConnectorLocation">410,160 410,190 409.895,190 409.895,215</av:PointCollection>
+          <av:Size x:Key="ShapeSize">200,66</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">410,175 410,205 409.895,205 409.895,215</av:PointCollection>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:CommentOut sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
-        <ui:CommentOut.Body>
-          <Sequence DisplayName="Ignored Activities" sap2010:WorkflowViewState.IdRef="Sequence_1">
-            <ui:SelectFolder sap2010:Annotation.AnnotationText="Browse folder dialogbox displayed" DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="200,64" sap2010:WorkflowViewState.IdRef="SelectFolder_1" SelectedFolder="[fPath]">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-            </ui:SelectFolder>
-          </Sequence>
-        </ui:CommentOut.Body>
-      </ui:CommentOut>
+      <ui:SelectFolder sap2010:Annotation.AnnotationText="Browse folder dialogbox displayed" DisplayName="Select Folder" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="SelectFolder_1" SelectedFolder="[fPath]">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:SelectFolder>
       <FlowStep.Next>
         <FlowStep x:Name="__ReferenceID1">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">278.895,215</av:Point>
-              <av:Size x:Key="ShapeSize">262,91</av:Size>
-              <av:PointCollection x:Key="ConnectorLocation">409.895,306 409.895,336 411.5,336 411.5,386.5</av:PointCollection>
+              <av:Size x:Key="ShapeSize">262,104</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">409.895,319 409.895,349 411.5,349 411.5,386.5</av:PointCollection>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Assign sap2010:Annotation.AnnotationText="Get 1st FileName from the selected Folder" sap:VirtualizedContainerService.HintSize="262,91" sap2010:WorkflowViewState.IdRef="Assign_1">
+          <Assign sap2010:Annotation.AnnotationText="Get 1st FileName from the selected Folder" sap:VirtualizedContainerService.HintSize="262,104" sap2010:WorkflowViewState.IdRef="Assign_1">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">[fileName]</OutArgument>
             </Assign.To>
@@ -116,13 +114,13 @@
             </sap:WorkflowViewStateService.ViewState>
           </Assign>
           <FlowStep.Next>
-            <FlowDecision x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Condition to check file exists or not" Condition="[fileName&lt;&gt;vbNullString]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="143,129" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+            <FlowDecision x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="Condition to check file exists or not" Condition="[len(fileName)&gt;0]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="142,131" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <av:Point x:Key="ShapeLocation">340.5,386.5</av:Point>
-                  <av:Size x:Key="ShapeSize">143,129</av:Size>
-                  <av:PointCollection x:Key="FalseConnector">483.5,451 610,451 610,539</av:PointCollection>
+                  <av:Size x:Key="ShapeSize">142,131</av:Size>
+                  <av:PointCollection x:Key="FalseConnector">482.5,452 610,452 610,539</av:PointCollection>
                   <av:PointCollection x:Key="TrueConnector">340.5,452 190,452 190,479.5</av:PointCollection>
                   <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                   <x:String x:Key="FalseLabel">All files Read</x:String>
@@ -134,11 +132,11 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">74.5,479.5</av:Point>
-                      <av:Size x:Key="ShapeSize">231,61</av:Size>
+                      <av:Size x:Key="ShapeSize">231,62</av:Size>
                       <av:PointCollection x:Key="ConnectorLocation">190,541.5 190,570</av:PointCollection>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <WriteLine DisplayName="Output FileName" sap:VirtualizedContainerService.HintSize="231,61" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[fileName]">
+                  <WriteLine DisplayName="Output FileName" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[fileName]">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -179,10 +177,10 @@
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">494.5,539</av:Point>
-                      <av:Size x:Key="ShapeSize">231,61</av:Size>
+                      <av:Size x:Key="ShapeSize">231,62</av:Size>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,61" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="No file to read">
+                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="No file to read">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>

@@ -3,11 +3,11 @@
   "description": "Delete Files, Merge Files, Rename Files, Copy Files, Move Files, Get File Details, Get all files recursively",
   "main": "Delete_Files.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.8.3-beta.867639]",
+    "UiPath.Excel.Activities": "[2.7.2]",
     "UiPath.Mail.Activities": "[1.8.3-beta.865074]",
     "UiPath.Python.Activities": "[1.1.6863.33404]",
     "UiPath.System.Activities": "[20.4.0-beta.864462]",
-    "UiPath.UIAutomation.Activities": "[20.4.0-beta.853586]"
+    "UiPath.UIAutomation.Activities": "[19.11.2]"
   },
   "webServices": [],
   "schemaVersion": "4.0",
@@ -31,7 +31,7 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfoCollection": []
+    "fileInfos": []
   },
   "expressionLanguage": "VisualBasic"
 }
