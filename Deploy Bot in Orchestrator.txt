@@ -1,0 +1,13 @@
+Steps to deploy a Bot in Orchestrator
+1) Publish a Bot from UiPath Studio
+2) Open Robot.exe from tray menu
+3) Login to orchestrator
+4) Management - Create a Machine (machine name must be same as your computer name)
+5) Management - Copy the Machine key & paste in the robot.exe with orchestrator URL (https://platform.uipath.com/)
+5) Management - Create Robot -> type unattended (provide your UserName & Password)
+6) Management - Create Environment -> attach the created bot
+7) Automations - Create Process -> attach the attach the created environment
+8) Job
+9) Trigger a job
+
+
