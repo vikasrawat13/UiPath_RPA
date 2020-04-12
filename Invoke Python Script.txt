@@ -1,7 +1,7 @@
 * Install Python Package 
 * Load Python Scope Acitivity   (Path, Traget, Version) as per your python 
   * Load Python Script 		(File : Python scirpt location, Result : pythonObject
-  * Invoke Python Method 	(Input Parameter : (8,10), Instance: pythonObject, Name: "Add", Result : pythonObject)
+  * Invoke Python Method 	(Input Parameter : {8,10}, Instance: pythonObject, Name: "Add", Result : pythonObject)
   * Get Python Object		(Python Object : pythonObject, Result : store the script result)
   * Display the Result		(Display the Result)
 
