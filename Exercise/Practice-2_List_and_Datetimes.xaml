@@ -1,0 +1,247 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Practice_2_List_and_Datetimes" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="1050,1024" sap2010:WorkflowViewState.IdRef="Practice_2_List_and_Datetimes_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>UiPath.CV</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap2010:Annotation.AnnotationText="Verify if the dates in the list have passed in the current year&#xD;&#xA;&#xD;&#xA;Given an input list of strings in format dd.MM.yyyy, please check if any of the dates has the same month as current month and print that date to output. &#xD;&#xA;&#xD;&#xA; For the dates having a different month, print to output the number of days that passed/due from the current date to date from list (in the current year).&#xD;&#xA;&#xD;&#xA;Note: Initialize a list with the following value: new List(of String) from {&quot;01.02.1980&quot;, &quot;04.05.1985&quot;,&quot;06.08.1988&quot;,&quot;24.09.1999&quot;,&quot;18.11.1986&quot;,&quot;11.10.1983&quot;}" sap:VirtualizedContainerService.HintSize="1025,762" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="scg:List(x:String)" Name="DateList">
+        <Variable.Default>
+          <mva:VisualBasicValue x:TypeArguments="scg:List(x:String)" ExpressionText="new list(of string)from{&quot;01.02.1980&quot;, &quot;04.05.1985&quot;,&quot;06.08.1988&quot;,&quot;09.24.1999&quot;,&quot;11.18.1986&quot;,&quot;11.10.1983&quot;}" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:Int32" Name="counter">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" />
+        </Variable.Default>
+      </Variable>
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        <av:Point x:Key="ShapeLocation">490,0</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        <av:PointCollection x:Key="ConnectorLocation">520,75 520,105 518.5,105 518.5,106.5</av:PointCollection>
+        <x:Double x:Key="Width">991</x:Double>
+        <x:Double x:Key="Height">601.5</x:Double>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID0</x:Reference>
+    </Flowchart.StartNode>
+    <FlowDecision x:Name="__ReferenceID0" sap2010:Annotation.AnnotationText="check counter variable is smaller than length of list" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="136,147" sap2010:WorkflowViewState.IdRef="FlowDecision_1">
+      <FlowDecision.Condition>
+        <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="counter&lt; DateList.Count" />
+      </FlowDecision.Condition>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <av:Point x:Key="ShapeLocation">450.5,106.5</av:Point>
+          <av:Size x:Key="ShapeSize">136,147</av:Size>
+          <av:PointCollection x:Key="TrueConnector">450.5,180 407,180 407,266.5</av:PointCollection>
+          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <FlowDecision.True>
+        <FlowDecision x:Name="__ReferenceID2" sap2010:Annotation.AnnotationText="check date month and today month are same" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="153,147" sap2010:WorkflowViewState.IdRef="FlowDecision_2">
+          <FlowDecision.Condition>
+            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="cdate(DateList(counter)).Month = Today.Month" />
+          </FlowDecision.Condition>
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <av:Point x:Key="ShapeLocation">330.5,266.5</av:Point>
+              <av:Size x:Key="ShapeSize">153,147</av:Size>
+              <av:PointCollection x:Key="TrueConnector">330.5,340 300.5,340 300.5,270.02 275.431666666667,270.02</av:PointCollection>
+              <av:PointCollection x:Key="FalseConnector">483.5,340 585,340 585,366.5</av:PointCollection>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <FlowDecision.True>
+            <FlowStep x:Name="__ReferenceID3">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">44.4316666666667,239.02</av:Point>
+                  <av:Size x:Key="ShapeSize">231,62</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">159.931666666667,301.02 159.931666666667,331.02 161,331.02 161,390.02</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <WriteLine DisplayName="Print Date" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="[cdate(DateList(counter)).ToString(&quot;dd-MMM-yy&quot;)]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </WriteLine>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID1">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">30,390.02</av:Point>
+                      <av:Size x:Key="ShapeSize">262,60</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">30,420.02 4.5,420.02 4.5,76.5 484.5,76.5 484.5,106.5</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Assign DisplayName="Increment the Counter" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+                    <Assign.To>
+                      <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                    </Assign.To>
+                    <Assign.Value>
+                      <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
+                    </Assign.Value>
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </Assign>
+                  <FlowStep.Next>
+                    <x:Reference>__ReferenceID0</x:Reference>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowDecision.True>
+          <FlowDecision.False>
+            <FlowDecision x:Name="__ReferenceID4" sap2010:Annotation.AnnotationText="check date month is smaller than today date month" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="149,147" sap2010:WorkflowViewState.IdRef="FlowDecision_3">
+              <FlowDecision.Condition>
+                <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="cdate(DateList(counter)).Month &lt; Today.Month" />
+              </FlowDecision.Condition>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <av:Point x:Key="ShapeLocation">510.5,366.5</av:Point>
+                  <av:Size x:Key="ShapeSize">149,147</av:Size>
+                  <av:PointCollection x:Key="TrueConnector">510.5,440 370,440 370,509.5</av:PointCollection>
+                  <av:PointCollection x:Key="FalseConnector">659.5,440 720,440 720,539.5</av:PointCollection>
+                  <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <FlowDecision.True>
+                <FlowStep x:Name="__ReferenceID5">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">254.5,509.5</av:Point>
+                      <av:Size x:Key="ShapeSize">231,62</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">254.5,540.5 161,540.5 161,450.02</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Print the difference in days" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="[cstr((today - DateSerial(year(today),CDate(DateList(counter)).Month,CDate(DateList(counter)).Day)).TotalDays) +&quot; days passed away&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </WriteLine>
+                  <FlowStep.Next>
+                    <x:Reference>__ReferenceID1</x:Reference>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowDecision.True>
+              <FlowDecision.False>
+                <FlowStep x:Name="__ReferenceID6">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">604.5,539.5</av:Point>
+                      <av:Size x:Key="ShapeSize">231,62</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">835.5,570.5 860,570.5 860,360</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <WriteLine DisplayName="Print thse difference in day" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_9" Text="[CStr((DateSerial(year(today),CDate(DateList(counter)).Month,CDate(DateList(counter)).Day)-Today).TotalDays)+&quot; days left in future&quot;]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </WriteLine>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">729,300</av:Point>
+                          <av:Size x:Key="ShapeSize">262,60</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">860,300 860,76.5 552.5,76.5 552.5,106.5</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Assign DisplayName="Increment the Counter" sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:Int32">[counter]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:Int32">[counter+1]</InArgument>
+                        </Assign.Value>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </Assign>
+                      <FlowStep.Next>
+                        <x:Reference>__ReferenceID0</x:Reference>
+                      </FlowStep.Next>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowDecision.False>
+            </FlowDecision>
+          </FlowDecision.False>
+        </FlowDecision>
+      </FlowDecision.True>
+    </FlowDecision>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
+    <x:Reference>__ReferenceID7</x:Reference>
+  </Flowchart>
+</Activity>
